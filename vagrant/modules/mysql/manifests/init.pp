@@ -20,4 +20,12 @@ class mysql {
     	name => "mysql",
 	    require => Package["mysql-server"],
   	}
+
+	mysql::db { $dbname:
+   		user     => $dbuser,
+   		password => $dbpass,
+   		host     => $::hostname,
+   		grant    => ['all'],
+   		require => Service["mysql"],
+ 	}
 }
