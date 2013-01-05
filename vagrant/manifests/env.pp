@@ -1,23 +1,34 @@
+Exec {
+    path => [
+        '/usr/local/bin',
+        '/opt/local/bin',
+        '/usr/bin', 
+        '/usr/sbin', 
+        '/bin',
+        '/sbin'],
+    logoutput => true,
+}
+
 node default{
-	
-	include bootstrap
+    
+    include bootstrap
 
-	include apache
+    include apache
 
-	include php
-	include php::apache
+    include php
+    include php::apache
 
-	include php::composer
+    include php::composer
 
-	# Set up mysql db
-	include mysql
-	mysql::db { 'site_db':
-   		user     => 'vagrant',
-   		password => 'vagrant',
-   		host     => 'localhost',
-   		grant    => ['all'],
-   		require => Service["mysql"],
- 	}
+    # Set up mysql db
+    include mysql
+    mysql::db { 'site_db':
+        user     => 'vagrant',
+        password => 'vagrant',
+        host     => 'localhost',
+        grant    => ['all'],
+        require => Service["mysql"],
+    }
 
- 	include symfony14
+    include symfony14
 }
