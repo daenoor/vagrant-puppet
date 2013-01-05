@@ -1,17 +1,7 @@
 # Class: mysql
 #
 #
-class mysql (
-    $mysql_db = ""      
-){
-	$dbuser = 'vagrant'
-	$dbpass = 'vagrant'
-	
-	$dbname = $mysql_db ? {
-		"" => "site_db",
-		default => "${mysql_db}",
-	}
-
+class mysql {
 	package { "mysql-server":
     	ensure => installed,
     	require => Exec["apt-get update"],
