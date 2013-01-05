@@ -44,6 +44,16 @@ Vagrant::Config.run do |config|
     puppet.manifest_file  = "env.pp"
   end
 
+  # If you want debug in puppet use following block
+  #
+  # config.vm.provision :puppet, :options => "--verbose --debug" do |puppet|
+  #   puppet.manifests_path = "vagrant/manifests"
+  #   puppet.module_path = "vagrant/modules"
+  #
+  #   ## Set actual main manifest here
+  #   puppet.manifest_file  = "env.pp"
+  # end
+
 
   # Allow symlinks in VM
   config.vm.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root", "1"]
