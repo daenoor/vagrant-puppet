@@ -38,4 +38,12 @@ class php {
 			require => Package['php5-cli'],
 		}
   	}
+
+    # If mysql installed install mysql extension
+    if defined(Service["mysql"]) {
+        php::module{ "mysql":
+            ensure => "present",
+            require => Package['php5-cli'],
+        }
+    }
 }
