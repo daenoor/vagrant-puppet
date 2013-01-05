@@ -7,7 +7,12 @@ node default{
 	include php
 	include php::apache
 
-	class { "mysql":
-		mysql_db => "site_db",
-	}
+	# Set up mysql db
+	mysql::db { 'site_db':
+   		user     => 'vagrant',
+   		password => 'vagrant',
+   		host     => 'localhost',
+   		grant    => ['all'],
+   		require => Service["mysql"],
+ 	}
 }
