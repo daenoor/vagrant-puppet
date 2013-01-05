@@ -35,6 +35,7 @@ class mysql::config(
   $config_file       = '/etc/mysql/my.cnf',
   $socket            = '/var/run/mysqld/mysqld.sock',
   $pidfile           = '/var/run/mysqld/mysqld.pid',
+  $basedir           = '/usr',
   $datadir           = '/var/lib/mysql',
   $log_error         = '/var/log/mysql/error.log',
   $default_engine    = 'InnoDB',
