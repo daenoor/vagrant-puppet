@@ -18,6 +18,6 @@ define php::pear::package (
 		provider => "pear",
 		source => $pear_source,
 		ensure => $version,
-		require => "php::pear",
+		require => Class["php::pear"],
 	}
 }
