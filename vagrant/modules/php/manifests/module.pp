@@ -6,11 +6,13 @@ define php::module ($ensure="present") {
 	    package { "${phpprefix}${name}":
 	      ensure => $ensure,
 	      notify => Service["apache"],
+	      require => Exec["apt-get update"],
 	    }
   	}
   	else {
 	    package { "${phpprefix}${name}":
 	      ensure => $ensure,
+	      require => Exec["apt-get update"],
 	    }
   	}
 
