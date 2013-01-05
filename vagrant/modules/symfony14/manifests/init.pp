@@ -2,7 +2,7 @@
 #
 #
 class symfony14 {
-	pear::package{ "symfony"
+	php::pear::package{ "symfony"
 		repository => "pear.symfony-project.com",
 	}
 }
