@@ -8,6 +8,7 @@ node default{
 	include php::apache
 
 	# Set up mysql db
+	include mysql
 	mysql::db { 'site_db':
    		user     => 'vagrant',
    		password => 'vagrant',
