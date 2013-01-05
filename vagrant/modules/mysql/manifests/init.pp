@@ -1,13 +1,15 @@
 # Class: mysql
 #
 #
-class mysql {
+class mysql (
+    $mysql_db = ""      
+){
 	$dbuser = 'vagrant'
 	$dbpass = 'vagrant'
 	
 	$dbname = $mysql_db ? {
-		"" => 'site_db',
-		"default" => $mysql_db
+		"" => "site_db",
+		default => "${mysql_db}",
 	}
 
 	package { "mysql-server":
@@ -20,12 +22,4 @@ class mysql {
     	name => "mysql",
 	    require => Package["mysql-server"],
   	}
-
-	mysql::db { $dbname:
-   		user     => $dbuser,
-   		password => $dbpass,
-   		host     => $::hostname,
-   		grant    => ['all'],
-   		require => Service["mysql"],
- 	}
 }
