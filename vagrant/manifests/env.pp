@@ -7,6 +7,8 @@ node default{
 	include php
 	include php::apache
 
+	include php::composer
+
 	# Set up mysql db
 	include mysql
 	mysql::db { 'site_db':
