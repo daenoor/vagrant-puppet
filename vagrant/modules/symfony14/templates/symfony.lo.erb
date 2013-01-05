@@ -1,0 +1,30 @@
+<VirtualHost *:80>
+    ServerName symfony.lo
+
+    DocumentRoot <%= targetdir %>/web
+
+    AddDefaultCharset utf8
+    DirectoryIndex index.php
+
+    Alias /sf /usr/share/php/data/symfony/web/sf
+    
+    <Directory "/usr/share/php/data/symfony/web/sf">
+        AllowOverride All
+        Order allow,deny
+        Allow from All
+    </Directory>
+
+    <Directory <%= targetdir %>/web>
+        Options Indexes FollowSymLinks MultiViews
+        AllowOverride All
+        Order allow,deny
+        allow from all
+    </Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/sf_error.log
+
+    # Possible values include: debug, info, notice, warn, error, crit,
+    # alert, emerg.
+    LogLevel warn
+
+</VirtualHost>
