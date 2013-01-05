@@ -18,4 +18,6 @@ node default{
    		grant    => ['all'],
    		require => Service["mysql"],
  	}
+
+ 	include symfony14
 }
