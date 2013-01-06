@@ -5,6 +5,7 @@ class php::composer {
 	exec { "composer":
 		command => "curl -s http://getcomposer.org/installer | php -- --install-dir=/usr/local/bin",
 		require => [Package["curl"], Package["php5-cli"]],
-		user => root
+		user => root,
+        creates => "/usr/local/bin/composer.phar",
 	}
 }
