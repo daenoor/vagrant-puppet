@@ -37,4 +37,6 @@ node default{
 
 
     include symfony14
+
+    include capifony
 }
