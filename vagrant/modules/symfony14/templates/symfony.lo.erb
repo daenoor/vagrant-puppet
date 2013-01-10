@@ -21,6 +21,9 @@
         allow from all
     </Directory>
 
+    LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-agent}i\"" combined
+    CustomLog ${APACHE_LOG_DIR}/sf_access.log combined
+
     ErrorLog ${APACHE_LOG_DIR}/sf_error.log
 
     # Possible values include: debug, info, notice, warn, error, crit,
