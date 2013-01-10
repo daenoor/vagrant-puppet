@@ -1,0 +1,24 @@
+<VirtualHost *:80>
+    ServerName laravel.lo
+
+    DocumentRoot <%= targetdir %>/public
+
+    AddDefaultCharset utf8
+    DirectoryIndex index.php
+
+    <Directory <%= targetdir %>/public>
+        Options Indexes FollowSymLinks MultiViews
+        AllowOverride All
+        Order allow,deny
+        allow from all
+    </Directory>
+
+    LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-agent}i\"" combined
+    CustomLog ${APACHE_LOG_DIR}/laravel_access.log combined
+
+    ErrorLog ${APACHE_LOG_DIR}/laravel_error.log
+
+    # Possible values include: debug, info, notice, warn, error, crit,
+    # alert, emerg.
+    LogLevel warn
+</VirtualHost>
