@@ -2,4 +2,4 @@
 
 return array(
     'profiler' => true, 
-)
+);

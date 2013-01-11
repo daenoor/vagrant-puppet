@@ -4,20 +4,27 @@
 class laravel(
     $targetdir = '/vagrant'
 ) {
-    $secret = md5(inline_template("<%= "%10.9f%i" % [Time.new.to_f, Random.rand(1000)] %>"))
+    $secret = md5(inline_template("<%= Time.new.to_f %>"))
 
     file { "laravel config":
-        path => "${targetdir}/application/config/application.php",
+        path => "/root/application.php",
         ensure => file,
-        template => "laravel/application.php.erb",
+        content => template("laravel/application.php.erb"),
         mode => "0644",
-        unless => "test -f /root/.laravel_secret",
+    }
+
+    exec { "copy laravel config":
+        command => "cp /root/application.php ${targetdir}/application/config/application.php",
+        unless => "test -f /root/laravel_secret",
+        require => File["laravel config"],
+        #path => "/usr/bin:/usr/sbin:/bin:/usr/local/bin",
+        #refreshonly => true,
     }
 
     file { "/root/.laravel_secret":
         content => $secret,
         ensure => file,
-        require => File["laravel config"],
+        require => Exec["copy laravel config"],
     }
 
     file { "${targetdir}/public/.htaccess":
@@ -26,7 +33,7 @@ class laravel(
     }
 
     # vhost configuration
-    apache::site{ "default":
+    apache::site{ "000-default":
         ensure => absent,
     }
 
@@ -36,6 +43,10 @@ class laravel(
     }
 
     #dev config
+    file { "${targetdir}/application/config/local":
+        ensure => directory,
+    }
+
     file { "${targetdir}/application/config/local/application.php":
         ensure => file,
         source => 'puppet:///modules/laravel/application_local.php',
