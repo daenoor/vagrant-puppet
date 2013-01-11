@@ -35,5 +35,10 @@ node default{
         require => [Package['php5-cli'], Class["mysql"]],
     }
 
-    include laravel3
+    php::module{ "mcrypt":
+        ensure => "present",
+        require => Package['php5-cli'],
+    }
+
+    include laravel
 }
