@@ -18,7 +18,7 @@ node default{
     include php
     include php::apache
 
-    # include php::composer
+    include php::composer
 
     # Set up mysql db
     include mysql
