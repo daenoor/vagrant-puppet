@@ -41,7 +41,7 @@ Vagrant::Config.run do |config|
     puppet.module_path = "vagrant/modules"
 
     ## Set actual main manifest here
-    puppet.manifest_file  = "env.pp"
+    puppet.manifest_file  = "default.pp"
   end
 
   # If you want debug in puppet use following block
