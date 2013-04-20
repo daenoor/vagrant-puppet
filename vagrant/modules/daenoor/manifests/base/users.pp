@@ -2,7 +2,7 @@
 # 
 # Sample users and groups
 #
-class base::users {
+class daenoor::base::users {
     
     # Groups
     @group { "admins":
@@ -14,12 +14,6 @@ class base::users {
     @group { "developers":
         gid => '998',
         tag => "developers",
-        ensure => present,
-    }
-
-    @group { "deployers":
-        gid => '997',
-        tag => "deployers",
         ensure => present,
     }
 
