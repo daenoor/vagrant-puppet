@@ -13,3 +13,12 @@
 [submodule "vagrant/modules/apt"]
 	path = vagrant/modules/apt
 	url = https://github.com/example42/puppet-apt.git
+[submodule "vagrant/modules/apache"]
+	path = vagrant/modules/apache
+	url = https://github.com/example42/puppet-apache.git
+[submodule "vagrant/modules/mysql"]
+	path = vagrant/modules/mysql
+	url = https://github.com/example42/puppet-mysql.git
+[submodule "vagrant/modules/php"]
+	path = vagrant/modules/php
+	url = https://github.com/example42/puppet-php.git
