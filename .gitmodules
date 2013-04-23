@@ -22,3 +22,6 @@
 [submodule "vagrant/modules/php"]
 	path = vagrant/modules/php
 	url = https://github.com/example42/puppet-php.git
+[submodule "vagrant/modules/rvm"]
+	path = vagrant/modules/rvm
+	url = https://github.com/example42/puppet-rvm.git
