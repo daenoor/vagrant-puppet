@@ -33,6 +33,6 @@ class daenoor::base::users {
         managehome => true,
         groups => "developers",
         tag => "developers",
-        manage_groups => true,
+        manage_group => true,
     }
 }
