@@ -1,6 +1,6 @@
-# Class: daenoor::features::feature_cap
+# Class: daenoor::feature::feature_foundation
 #
-class daenoor::feature::feature_cap {
+class daenoor::feature::feature_foundation {
     include daenoor::ruby
 
     rvm_gem { 
