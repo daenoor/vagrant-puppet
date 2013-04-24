@@ -9,6 +9,5 @@ class daenoor::feature::feature_symfony14 {
         name => "myapp",
         docroot => "/vagrant/web",
         template => 'daenoor/apache/vhost/symfony14/app.local.conf',
-        sfroot => "/usr/php/data/symfony/web/sf",
     }
 }
