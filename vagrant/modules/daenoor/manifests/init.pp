@@ -9,5 +9,5 @@ class daenoor
         include "daenoor::feature::feature_${name}"
     }
 
-    enable_features($::features)
+    enable_features { $::features: }
 }
