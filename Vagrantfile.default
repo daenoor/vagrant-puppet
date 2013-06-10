@@ -56,6 +56,6 @@ Vagrant::Config.run do |config|
 
   config.vm.provider :virtualbox do |vb|
     # Allow symlinks in VM
-    vm.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root", "1"]
+    vb.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root", "1"]
   end
 end
