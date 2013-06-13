@@ -3,6 +3,9 @@
 #
 class daenoor
 {
+    # set path
+    Exec { path => [ '/usr/local/bin', '/opt/local/bin', '/usr/bin', '/usr/sbin', '/bin', '/sbin'], logoutput => true, }
+    
     # Apt
     stage {'preinstall':
         before => Stage['main'],
