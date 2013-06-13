@@ -5,6 +5,7 @@ class daenoor::feature::feature_cap {
 
     rvm_gem { 
         'capifony': 
-            ensure => latest;
+            ensure => latest,
+            require => Rvm_system_ruby['ruby-1.9.3'];
     }
 }
