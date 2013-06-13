@@ -1,14 +1,12 @@
 # Class: base
 # Some basic stuff
 #
-class daenoor::base::system {
-    include daenoor::base::users
 
-    User <| title == rot |>
-    User::Managed <| tag == admins |>
-    User::Managed <| tag == developers |>
-    Group <| tag == admins |>
-    Group <| tag == developers |>
+class daenoor::base::system {
+    # Apt
+    stage {'preinstall':
+        before => Stage['main'],
+    }
 
     # OpenSSH
     class { 'openssh':
@@ -36,16 +34,6 @@ class daenoor::base::system {
         source => "puppet:///modules/daenoor/sudo/sudoers",
     }
 
-    # If debian based - check apt and run update
-    case $::osfamily {
-        "debian": {
-            include apt
-        }
-        default: {
-            # code
-        }
-    }
-
     package { 'git': ensure => present }
     package { 'mercurial': ensure => present }
-}   
+}
