@@ -3,11 +3,6 @@
 #
 
 class daenoor::base::system {
-    # Apt
-    stage {'preinstall':
-        before => Stage['main'],
-    }
-
     # OpenSSH
     class { 'openssh':
         template => 'daenoor/openssh/sshd_config.erb',
