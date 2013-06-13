@@ -25,9 +25,9 @@ class daenoor::base::system {
     }
 
     # Sudo
-    class { 'sudo': 
-        source => "puppet:///modules/daenoor/sudo/sudoers",
-    }
+#    class { 'sudo': 
+#        source => "puppet:///modules/daenoor/sudo/sudoers",
+#    }
 
     package { 'git': ensure => present }
     package { 'mercurial': ensure => present }
