@@ -2,5 +2,10 @@
 #
 #
 class daenoor::node_js {
-	include nodejs
+	package { 'build-essential': ensure => present }
+
+	class { 'nodejs':
+	  version => 'latest',
+	  require => Package['build-essential'],
+	}
 }
