@@ -28,3 +28,6 @@
 [submodule "vagrant/modules/rvm"]
 	path = vagrant/modules/rvm
 	url = git://github.com/blt04/puppet-rvm.git
+[submodule "vagrant/modules/nodejs"]
+	path = vagrant/modules/nodejs
+	url = git://github.com/willdurand/puppet-nodejs.git
