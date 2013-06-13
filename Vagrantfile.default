@@ -5,18 +5,17 @@ Vagrant.configure("2") do |config|
   config.vm.box = "precise32"
   config.vm.box_url = "http://files.vagrantup.com/precise32.box" 
 
-  config.vm.network :hostonly, "192.168.33.10"
-  config.vm.host_name = "test.vagrant.local"
+  config.vm.network :private_network, ip: "192.168.33.10"
+  config.vm.hostname = "test.vagrant.local"
 
   # Forward a port from the guest to the host, which allows for outside
   # computers to access the VM, whereas host only networking does not.
   # ssh
-  config.vm.forward_port 22, 2200
+  config.vm.network :forwarded_port, guest: 22, host: 2200
   # www
-  config.vm.forward_port 80, 8000
+  config.vm.network :forwarded_port, guest: 80, host: 8080
   # mongodb
-  config.vm.forward_port 27017, 27017
-
+  config.vm.network :forwarded_port, guest: 27017, host: 27017
 
   # Enable provisioning with Puppet stand alone.  Puppet manifests
   # are contained in a directory path relative to this Vagrantfile.
