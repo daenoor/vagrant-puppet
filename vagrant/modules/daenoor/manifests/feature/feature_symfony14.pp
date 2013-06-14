@@ -5,9 +5,10 @@ class daenoor::feature::feature_symfony14 {
         repository => "pear.symfony-project.com",
     }
 
-    apache::vhost { 'puppetdb.example42.com':
-        name => "myapp",
-        docroot => "/vagrant/web",
-        template => 'daenoor/apache/vhost/symfony14/app.local.conf',
-    }
+#    apache::vhost { 'puppetdb.example42.com':
+#        name => "myapp",
+#        docroot => "/vagrant/web",
+#        template => 'daenoor/apache/vhost/symfony14/app.local.conf',
+#    }
+
 }
