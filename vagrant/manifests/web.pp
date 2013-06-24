@@ -1,3 +1,3 @@
-$features = ['web', 'nodejs']
+$features = ['web', 'nodejs', 'foundation']
 
 include daenoor
